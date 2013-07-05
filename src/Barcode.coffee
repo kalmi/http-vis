@@ -86,6 +86,7 @@ window.Barcode = class Barcode
     bars
       .attr('transaction-id', (t) -> t.id)
       .attr('xlink:href', (t) -> t.request.url)
+      .attr('target', (t) -> '_blank')
     bars.each((t) -> draw_packets d3.select(@).select('g.packets').selectAll('rect').data(t.packets_in), transaction_y(t) + 0.1 + 'em', '0.8em')
     bars.select('title').text (t) ->
       "TCP##{t.stream.id} (#{t.stream.domain})\n" +
